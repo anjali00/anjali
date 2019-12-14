@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>  
+<head> 
+    <meta charset="utf-8"> 
+    <title>Guessing the Number Game</title> 
+	<style>
+	body{font-size:20px}
+	</style>
+</head> 
+  
+<body> 
+<h1>Guess The Number</h1> 
+ 
+<p> Can you guess the random number picked for you?</br> The range of the number is 1-10</p> 
+  
+<div class="form"> 
+    <label for="gu"> Enter your guess: </label> 
+    <input type = "text" id = "gu" > 
+    <input type = "submit" id = "sub" name="Submit"> 
+</div> 
+
+<p id="rr"> </p>
+
+<script type = "text/javascript"> 
+  
+    var x = Math.floor(Math.random() * 10 + 1); 
+    var n = 1; 
+    document.getElementById("sub").onclick = function(){ 
+	var guess = document.getElementById("gu"); 
+    
+	if(n == 10) 
+	{
+    document.getElementById("rr").innerHTML = " Oh no!!You have exhausted your chances";
+	}
+    else if(guess == x) 
+    {     
+		document.getElementById("rr").innerHTML = " HURRAY!! You guessed it right in " + n +" guesses ";
+    } 
+    else
+    { 
+	   var l=10-n;
+	   document.getElementById("rr").innerHTML = " Oops!! wrong guess </br></br>"+ " :( try again</br></br>" + "You have " +  l + " chances left";
+	   n++; 
+    }  
+  } 
+</script> 
+</body> 
